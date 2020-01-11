@@ -1,5 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Your lucky number is {{ number }}</h1>
+
+<div style="margin: 0 64px; max-width: 680px;">
+    <div class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                {% if is_granted('ROLE_USER') %}
+                    <a href="#" class="pure-menu-link"><div style="align-items: center; display: flex;">
+                            <img src="{{ app.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
+                            <div>{{ app.user.name }}</div>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{{ path('connect_google') }}" class="pure-menu-link">
+                        Вход через Google
+                    </a>
+                {% endif %}
+            </li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="pure-menu-item"><a href="{{ path('app_logout') }}" class="pure-menu-link">Выход</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2 id="responsive-images" class="content-subhead">Content<a href="#responsive-images" class="content-link" title="Heading anchor"></a></h2>
+
+        <p>
+            Content
+        </p>
+    </div>
+
+    <h1>Your lucky number is {{ number }}</h1>
+
+</div>
+
 {% endblock %}
