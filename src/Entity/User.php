@@ -23,7 +23,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=30)
      */
     private $name;
 
@@ -41,6 +41,15 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $guid;
+
+    /**
+     * @param UserInterface $user
+     * @return bool
+     */
+    public function isEqual(UserInterface $user): bool
+    {
+        return $this->getUsername() === $user->getUsername();
+    }
 
     public function getId(): ?int
     {

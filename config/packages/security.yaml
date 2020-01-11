@@ -5,6 +5,13 @@ security:
         my_provider:
             entity: { class: App:User, property: username }
 
+    access_control:
+        - { path: '^/connect/google', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: '^/connect/google/check', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/(.+), roles: IS_AUTHENTICATED_FULLY }
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -21,3 +28,9 @@ security:
             guard:
                 authenticators:
                 - App\Security\GoogleAuthenticator
+
+            form_login:
+                login_path: /connect/google
+                check_path: /connect/google/check
+
+            access_denied_url: /connect/google

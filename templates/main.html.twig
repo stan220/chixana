@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        BODY {
+            margin: 0;
+        }
+        .top-layer {
+            background: url(https://image.freepik.com/free-vector/seamless-pattern-microbes-virus-vector-illustration_53562-5156.jpg) repeat-x;
+            height: 69px;
+            border-bottom: 2px solid maroon;
+        }
+        .content-quote {
+            font-family: "Georgia", serif;
+            color: #666;
+            font-style: italic;
+            line-height: 1.8;
+            border-left: 5px solid #ddd;
+            padding-left: 1.5em;
+        }
+        .my-button {
+            background: rgb(66, 184, 221);
+            font-size: 150%;
+            margin-bottom: 80px;
+        }
+        .color-green {
+            color:green;
+        }
+        .color-red {
+            color:brown;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="top-layer">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZGF0YS1uYW1lPSJMYXllciAxIiBoZWlnaHQ9IjI0IiBpZD0iTGF5ZXJfMSIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlLz48cmVjdCBoZWlnaHQ9IjMiIHJ4PSIxIiByeT0iMSIgc3R5bGU9ImZpbGw6I2IzYzFjOSIgd2lkdGg9IjIwIiB4PSIyIiB5PSIxMCIvPjxwYXRoIGQ9Ik0xNi41LDEzLjM2OTVINnY0LjcyNTZhMS45OTk4LDEuOTk5OCwwLDAsMCwuODMxMywxLjYyM0w5LjQ3NjQsMjEuNjIzQTIuMDAwMzIsMi4wMDAzMiwwLDAsMCwxMC42NDUyLDIyaDIuNzA5NmEyLjAwMDMyLDIuMDAwMzIsMCwwLDAsMS4xNjg4LS4zNzdsMi42NDUxLTEuOTA0OUExLjk5OTgxLDEuOTk5ODEsMCwwLDAsMTgsMTguMDk1MVYxMy4zNjk1WiIgc3R5bGU9ImZpbGw6IzRlYmE5NCIvPjxwYXRoIGQ9Ik0xNiwxNEg4djZhMSwxLDAsMCwwLC40LjhsMS4zMzMzLDFhMS4wMDAzMSwxLjAwMDMxLDAsMCwwLC42LjJoMy4zMzM0YTEuMDAwMywxLjAwMDMsMCwwLDAsLjYtLjJsMS4zMzMzLTFBMSwxLDAsMCwwLDE2LDIwWiIgc3R5bGU9ImZpbGw6IzY3YzdhNSIvPjxwYXRoIGQ9Ik0xNywxN0g3YTIuOTk5OTQsMi45OTk5NCwwLDAsMS0zLTNWNmEzLjk4MDYsMy45ODA2LDAsMCwxLC41OTM3LTIuMDk3OUM1LjI5ODEsMi43NjA3LDYuNTYwMiwzLDgsM2g4YzEuNDMyNSwwLDIuNjg5MS0uMjQ3LDMuMzk1Ni44ODQ4QTMuOTgwNTksMy45ODA1OSwwLDAsMSwyMCw2djhBMi45OTk5NCwyLjk5OTk0LDAsMCwxLDE3LDE3WiIgc3R5bGU9ImZpbGw6IzY3YzdhNSIvPjxjaXJjbGUgY3g9IjkiIGN5PSIxMSIgcj0iMi41IiBzdHlsZT0iZmlsbDojZmZmIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMSIgcj0iMi41IiBzdHlsZT0iZmlsbDojZmZmIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMSIgcj0iMC43NSIgc3R5bGU9ImZpbGw6IzczODM5NCIvPjxjaXJjbGUgY3g9IjkiIGN5PSIxMSIgcj0iMC43NSIgc3R5bGU9ImZpbGw6IzczODM5NCIvPjxwYXRoIGQ9Ik0xMywxOUgxMWExLDEsMCwwLDEtMS0xaDBhMSwxLDAsMCwxLDEtMWgyYTEsMSwwLDAsMSwxLDFoMEExLDEsMCwwLDEsMTMsMTlaIiBzdHlsZT0iZmlsbDojNDA5OTdhIi8+PHJlY3QgaGVpZ2h0PSIzIiBzdHlsZT0iZmlsbDojNjdjN2E1IiB3aWR0aD0iMTYiIHg9IjQiIHk9IjgiLz48cmVjdCBoZWlnaHQ9IjMiIHN0eWxlPSJmaWxsOiNmZmY0YWIiIHdpZHRoPSIxIiB4PSI3IiB5PSI2Ii8+PHJlY3QgaGVpZ2h0PSIzIiBzdHlsZT0iZmlsbDojZmZmNGFiIiB3aWR0aD0iMSIgeD0iMTAiIHk9IjYiLz48cmVjdCBoZWlnaHQ9IjMiIHN0eWxlPSJmaWxsOiNmZmY0YWIiIHdpZHRoPSIxIiB4PSIxMyIgeT0iNiIvPjxyZWN0IGhlaWdodD0iMSIgc3R5bGU9ImZpbGw6I2ZmZjRhYiIgd2lkdGg9IjkiIHg9IjYiIHk9IjciLz48cGF0aCBkPSJNNC41NTQ3LDQsNiw1LDgsNGwyLDEsMi0xLDIsMSwxLjk5OTYtMUwxOCw1bDEuNDQ1My0xQTMuOTgzMTUsMy45ODMxNSwwLDAsMCwxNiwySDhBMy45ODMxNiwzLjk4MzE2LDAsMCwwLDQuNTU0Nyw0WiIgc3R5bGU9ImZpbGw6IzRiNTY2MSIvPjwvc3ZnPg=="
+         width="279" height="160" alt="Logo">
+</div>
+
+<div style="margin: 0 64px;">
+    <div class="pure-menu pure-menu-horizontal" style="margin-left: 160px">
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="{{ path('app_main_index') }}" class="pure-menu-link">
+                    Chixana!
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                {% if is_granted('ROLE_USER') %}
+                    <a href="#" class="pure-menu-link" style="padding: 0">
+                        <div style="align-items: center; display: flex;">
+                            <img src="{{ app.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
+                            <div>{{ app.user.name }}</div>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{{ path('connect_google') }}" class="pure-menu-link">
+                        Вход через Google
+                    </a>
+                {% endif %}
+            </li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="pure-menu-item"><a href="{{ path('app_logout') }}" class="pure-menu-link">Выход</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    {% block content %}{% endblock %}
+
+</div>
+
+{% endblock %}
