@@ -1,64 +1,62 @@
 {% extends 'main.html.twig' %}
 
 {% block content %}
-<div class="pure-g" style="max-width: 980px">
-    <div class="pure-u-3-5">
-        <img style="width: 500px; padding-top: 100px" src="https://image.freepik.com/free-vector/happy-doctor-with-clipboard_23-2147798688.jpg">
-    </div>
-    <div class="pure-u-2-5">
-    <h1>Инфа о чихе</h1>
+<div class="pure-u-3-5">
+    <img style="width: 500px; padding-top: 100px" src="https://image.freepik.com/free-vector/happy-doctor-with-clipboard_23-2147798688.jpg">
+</div>
+<div class="pure-u-2-5">
+<h1>Инфа о чихе</h1>
 
-    <table class="pure-table pure-table-horizontal">
-        <tr>
-            <td>Id</td>
-            <td>{{ chix.id }}</td>
-        </tr>
-        <tr>
-            <td>Наблюдаемый</td>
-            <td>
-                <div style="align-items: center; display: flex;">
-                    <img src="{{ chix.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
-                    <div>{{ chix.user.name }}</div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>Дата</td>
-            <td>{{ chix.getCreatedAt|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <td>Аппрувы</td>
-            <td>
-                {% for approve in chix.approves %}
-                <div style="align-items: center; display: flex;">
-                    <img src="{{ approve.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
-                    <div>{{ approve.user.name }}</div>
-                </div>
-                {% endfor %}
-            </td>
-        </tr>
-        <tr>
-            <td>Статус</td>
-            <td><i class="fas fa-lg {{ chix.isVerified ? 'fa-check-circle color-green' : 'fa-times-circle color-red' }}">
-                    {{ chix.isVerified ? 'Утверждено' : 'В проработке' }}
-                    </i>
-            </td>
-        </tr>
-    </table>
+<table class="pure-table pure-table-horizontal">
+    <tr>
+        <td>Id</td>
+        <td>{{ chix.id }}</td>
+    </tr>
+    <tr>
+        <td>Наблюдаемый</td>
+        <td>
+            <div style="align-items: center; display: flex;">
+                <img src="{{ chix.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
+                <div>{{ chix.user.name }}</div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Дата</td>
+        <td>{{ chix.getCreatedAt|date('Y-m-d H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>Аппрувы</td>
+        <td>
+            {% for approve in chix.approves %}
+            <div style="align-items: center; display: flex;">
+                <img src="{{ approve.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
+                <div>{{ approve.user.name }}</div>
+            </div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>Статус</td>
+        <td><i class="fas fa-lg {{ chix.isVerified ? 'fa-check-circle color-green' : 'fa-times-circle color-red' }}">
+                {{ chix.isVerified ? 'Утверждено' : 'В проработке' }}
+                </i>
+        </td>
+    </tr>
+</table>
 
-    <h1> Текст </h1>
+<h1> Текст </h1>
 
-    <blockquote class="content-quote">
-    {{ statement }}
-    </blockquote>
+<blockquote class="content-quote">
+{{ statement }}
+</blockquote>
 
-    {% if isCanApprove %}
-    <a class="pure-button my-button" href="{{ path('chix_app_chix_approve', {'chixId': chix.id}) }}" >
-        <i class="fas fa-check-circle fa-lg"></i>
-        Апрувнуть!
-    </a>
-    {% endif %}
-    </div>
+{% if isCanApprove %}
+<a class="pure-button my-button" href="{{ path('chix_app_chix_approve', {'chixId': chix.id}) }}" >
+    <i class="fas fa-check-circle fa-lg"></i>
+    Апрувнуть!
+</a>
+{% endif %}
 </div>
 
 {% endblock %}
