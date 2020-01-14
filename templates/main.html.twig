@@ -10,6 +10,14 @@
             height: 69px;
             border-bottom: 2px solid maroon;
         }
+        .bottom-layer {
+            font-family: 'Helvetica Neue', Helvetica,Arial, sans-serif;
+            font-size: 15px;
+            color: #ddd;
+            background-color: #000;
+            padding: 2px;
+            text-align: center;
+        }
         .content-quote {
             font-family: "Georgia", serif;
             color: #666;
@@ -34,12 +42,12 @@
 
 {% block body %}
 <div class="top-layer">
-    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZGF0YS1uYW1lPSJMYXllciAxIiBoZWlnaHQ9IjI0IiBpZD0iTGF5ZXJfMSIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlLz48cmVjdCBoZWlnaHQ9IjMiIHJ4PSIxIiByeT0iMSIgc3R5bGU9ImZpbGw6I2IzYzFjOSIgd2lkdGg9IjIwIiB4PSIyIiB5PSIxMCIvPjxwYXRoIGQ9Ik0xNi41LDEzLjM2OTVINnY0LjcyNTZhMS45OTk4LDEuOTk5OCwwLDAsMCwuODMxMywxLjYyM0w5LjQ3NjQsMjEuNjIzQTIuMDAwMzIsMi4wMDAzMiwwLDAsMCwxMC42NDUyLDIyaDIuNzA5NmEyLjAwMDMyLDIuMDAwMzIsMCwwLDAsMS4xNjg4LS4zNzdsMi42NDUxLTEuOTA0OUExLjk5OTgxLDEuOTk5ODEsMCwwLDAsMTgsMTguMDk1MVYxMy4zNjk1WiIgc3R5bGU9ImZpbGw6IzRlYmE5NCIvPjxwYXRoIGQ9Ik0xNiwxNEg4djZhMSwxLDAsMCwwLC40LjhsMS4zMzMzLDFhMS4wMDAzMSwxLjAwMDMxLDAsMCwwLC42LjJoMy4zMzM0YTEuMDAwMywxLjAwMDMsMCwwLDAsLjYtLjJsMS4zMzMzLTFBMSwxLDAsMCwwLDE2LDIwWiIgc3R5bGU9ImZpbGw6IzY3YzdhNSIvPjxwYXRoIGQ9Ik0xNywxN0g3YTIuOTk5OTQsMi45OTk5NCwwLDAsMS0zLTNWNmEzLjk4MDYsMy45ODA2LDAsMCwxLC41OTM3LTIuMDk3OUM1LjI5ODEsMi43NjA3LDYuNTYwMiwzLDgsM2g4YzEuNDMyNSwwLDIuNjg5MS0uMjQ3LDMuMzk1Ni44ODQ4QTMuOTgwNTksMy45ODA1OSwwLDAsMSwyMCw2djhBMi45OTk5NCwyLjk5OTk0LDAsMCwxLDE3LDE3WiIgc3R5bGU9ImZpbGw6IzY3YzdhNSIvPjxjaXJjbGUgY3g9IjkiIGN5PSIxMSIgcj0iMi41IiBzdHlsZT0iZmlsbDojZmZmIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMSIgcj0iMi41IiBzdHlsZT0iZmlsbDojZmZmIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxMSIgcj0iMC43NSIgc3R5bGU9ImZpbGw6IzczODM5NCIvPjxjaXJjbGUgY3g9IjkiIGN5PSIxMSIgcj0iMC43NSIgc3R5bGU9ImZpbGw6IzczODM5NCIvPjxwYXRoIGQ9Ik0xMywxOUgxMWExLDEsMCwwLDEtMS0xaDBhMSwxLDAsMCwxLDEtMWgyYTEsMSwwLDAsMSwxLDFoMEExLDEsMCwwLDEsMTMsMTlaIiBzdHlsZT0iZmlsbDojNDA5OTdhIi8+PHJlY3QgaGVpZ2h0PSIzIiBzdHlsZT0iZmlsbDojNjdjN2E1IiB3aWR0aD0iMTYiIHg9IjQiIHk9IjgiLz48cmVjdCBoZWlnaHQ9IjMiIHN0eWxlPSJmaWxsOiNmZmY0YWIiIHdpZHRoPSIxIiB4PSI3IiB5PSI2Ii8+PHJlY3QgaGVpZ2h0PSIzIiBzdHlsZT0iZmlsbDojZmZmNGFiIiB3aWR0aD0iMSIgeD0iMTAiIHk9IjYiLz48cmVjdCBoZWlnaHQ9IjMiIHN0eWxlPSJmaWxsOiNmZmY0YWIiIHdpZHRoPSIxIiB4PSIxMyIgeT0iNiIvPjxyZWN0IGhlaWdodD0iMSIgc3R5bGU9ImZpbGw6I2ZmZjRhYiIgd2lkdGg9IjkiIHg9IjYiIHk9IjciLz48cGF0aCBkPSJNNC41NTQ3LDQsNiw1LDgsNGwyLDEsMi0xLDIsMSwxLjk5OTYtMUwxOCw1bDEuNDQ1My0xQTMuOTgzMTUsMy45ODMxNSwwLDAsMCwxNiwySDhBMy45ODMxNiwzLjk4MzE2LDAsMCwwLDQuNTU0Nyw0WiIgc3R5bGU9ImZpbGw6IzRiNTY2MSIvPjwvc3ZnPg=="
+    <img src="{{ asset('images/frank.svg') }}"
          width="279" height="160" alt="Logo">
 </div>
 
 <div style="margin: 0 64px;">
-    <div class="pure-menu pure-menu-horizontal" style="margin-left: 160px">
+    <div class="pure-menu pure-menu-horizontal" style="margin-left: 160px;">
         <ul class="pure-menu-list">
             <li class="pure-menu-item">
                 <a href="{{ path('app_main_index') }}" class="pure-menu-link">
@@ -68,6 +76,11 @@
 
     {% block content %}{% endblock %}
 
+    <div style="height: 40px"></div>
+    <div class="bottom-layer">
+        <span>Chixana © {{ "now"|date("Y") }}</span>
+        <iframe src="https://ghbtns.com/github-btn.html?user=stan220&repo=chixana&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+    </div>
 </div>
 
 {% endblock %}
