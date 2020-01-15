@@ -48,6 +48,25 @@ class ChixRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param int $time
+     * @return int
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getChixCountPerDay(int $time): int
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.created_at >= :from')
+            ->andWhere('c.created_at <= :to')
+            ->setParameter('from', date('Y-m-d 00:00:00', $time))
+            ->setParameter('to', date('Y-m-d 23:59:59', $time))
+            ->select('COUNT(c) as chixCount')
+            ->getQuery()
+            ->getSingleScalarResult()
+            ;
+    }
+
     // /**
     //  * @return Chix[] Returns an array of Chix objects
     //  */

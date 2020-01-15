@@ -10,10 +10,13 @@ class ChixBoard
 
     private $mod;
 
-    public function __construct($amount)
+    private $date;
+
+    public function __construct(int $amount, int $date)
     {
         $this->fiveCount = intdiv($amount, self::FIVE_DIV_VALUE);
         $this->mod = $amount % self::FIVE_DIV_VALUE;
+        $this->date = $date;
     }
 
     /**
@@ -30,6 +33,14 @@ class ChixBoard
     public function getMod(): int
     {
         return $this->mod;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDate(): int
+    {
+        return $this->date;
     }
 
 }
