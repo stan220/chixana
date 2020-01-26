@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "knpuniversity/oauth2-client-bundle": "^1.32",
         "league/oauth2-google": "^3.0",
+        "predis/predis": "^1.1",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.4.*",

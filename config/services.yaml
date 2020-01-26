@@ -25,3 +25,16 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Predis\Client:
+        arguments:
+        - '%env(REDIS_URL)%'
+
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+        arguments:
+        - '@Predis\Client'
+
+    redis_cache_service:
+        class: Doctrine\Common\Cache\PredisCache
+        arguments:
+        - '@Predis\Client'
