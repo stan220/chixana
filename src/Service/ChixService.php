@@ -66,8 +66,6 @@ class ChixService
         $this->entityManager->persist($chix);
         $this->entityManager->flush();
 
-        dump($chix);
-
         return $chix->getId();
     }
 

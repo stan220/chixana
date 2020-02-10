@@ -27,7 +27,7 @@
         <td>{{ chix.getCreatedAt|date('Y-m-d H:i:s') }}</td>
     </tr>
     <tr>
-        <td>Аппрувы</td>
+        <td>Санитары</td>
         <td>
             {% for approve in chix.approves %}
             <div style="align-items: center; display: flex;">
@@ -40,7 +40,7 @@
     <tr>
         <td>Статус</td>
         <td><i class="fas fa-lg {{ chix.isVerified ? 'fa-check-circle color-green' : 'fa-times-circle color-red' }}">
-                {{ chix.isVerified ? 'Утверждено' : 'В проработке' }}
+                {{ chix.isVerified ? 'Подлечен' : 'На лечении' }}
                 </i>
         </td>
     </tr>
@@ -55,7 +55,7 @@
 {% if isCanApprove %}
 <a class="pure-button my-button" href="{{ path('chix_app_chix_approve', {'chixId': chix.id}) }}" >
     <i class="fas fa-check-circle fa-lg"></i>
-    Апрувнуть!
+    Будь здоров!
 </a>
 {% endif %}
 </div>

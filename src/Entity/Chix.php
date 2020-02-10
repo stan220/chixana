@@ -105,4 +105,15 @@ class Chix
 
         return $this;
     }
+
+    public function hasApproveFromUser(UserInterface $user): bool
+    {
+        foreach ($this->approves as $approve) {
+            if ($approve->getUser()->isEqual($user)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

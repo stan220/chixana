@@ -1,8 +1,20 @@
 {% extends 'main.html.twig' %}
 
 {% block content %}
-<div class="pure-u-1-3">
+<div class="pure-u-1-2">
     <h1>Сегодня {{ 'now'|date('d.m.Y') }}</h1>
+
+    {% if is_granted('ROLE_USER') %}
+        <a class="pure-button my-button"
+           href="{{ path('chix_app_chix_add') }}"
+           onclick="return confirm('Прямой сейчас будет зафиксирован чих!!')"
+        >
+            <i class="fas fa-pills fa-lg"></i>
+            Зафиксировать себя!
+        </a>
+    {% else %}
+        <p>Залогиньтесь чтобы отравиться на экспертизу!</p>
+    {% endif %}
 
     <table class="pure-table">
         <thead>
@@ -10,7 +22,8 @@
             <th>#</th>
             <th>Чел</th>
             <th>Когда</th>
-            <th>Верифай</th>
+            <th></th>
+            <th>Санитары</th>
         </tr>
         </thead>
         <tbody>
@@ -27,9 +40,29 @@
                     <img src="{{ chix.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
                     <div>{{ chix.user.name }}</div>
                 </div>
+                {% if is_granted('ROLE_USER') %}
+                    {% if not (chix.user.isEqual(app.user) or chix.hasApproveFromUser(app.user)) %}
+                        <a class="pure-button my-btn-small" href="{{ path('chix_app_chix_approve', {'chixId': chix.id}) }}" >
+                            <i class="fas fa-check-circle fa-lg"></i>
+                            Будь здоров!
+                        </a>
+                    {% endif %}
+                {% endif %}
             </td>
             <td>{{ chix.createdAt|date('H:i:s') }}</td>
-            <td><i class="fas fa-lg {{ chix.isVerified ? 'fa-check-circle color-green' : 'fa-times-circle color-red' }}"></i></td>
+            <td>
+                <i class="fas fa-lg {{ chix.isVerified ? 'fa-check-circle color-green' : 'fa-times-circle color-red' }}"></i>
+            </td>
+            <td>
+                {% for approve in chix.approves %}
+                    {#<div style="align-items: center; display: flex;">#}
+                        <img src="{{ approve.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
+                        {#<div>{{ approve.user.name }}</div>#}
+                    {#</div>#}
+                {% endfor %}
+
+
+            </td>
 
             </tr>
         {% endfor %}
@@ -37,7 +70,7 @@
     </table>
 
     {% if is_granted('ROLE_USER') %}
-        <h1>Апрувы</h1>
+        <h1>Последние лекари.</h1>
 
         <table class="pure-table">
             <thead>
@@ -70,7 +103,7 @@
         </table>
     {% endif %}
 </div>
-<div class="pure-u-1-3">
+<div class="pure-u-1-2">
     <div style="padding: 0 20px 0 20px;">
         <h1>Борда чихов</h1>
 
@@ -78,30 +111,8 @@
             {{ include('index/board.html.twig') }}
         {% endfor %}
     </div>
-</div>
-<div class="pure-u-1-3">
-    <p>Помните! Нам важен каждый чих!</p>
-    <h1> ✅ Прожать кнопку </h1>
-
-    {% if is_granted('ROLE_USER') %}
-    <p>Если вы чихнули, то, пожалуйста, зафиксируте время и факт произошедшенго.</p>
+    <p>Если вы чихнули, то, пожалуйста, зафиксируте время и факт произошедшего.</p>
     <p>Будьте внимательны! Если чихнул Ваш коллега, то не забудьте напомнить ему о акте фиксации.</p>
-    <a class="pure-button my-button"
-       href="{{ path('chix_app_chix_add') }}"
-       onclick="return confirm('Прямой сейчас будет зафиксирован чих!!')"
-    >
-        <i class="fas fa-pills fa-lg"></i>
-        Зафиксировать себя!
-    </a>
-
-    <p>Если заметили подозрительную активность, то проявите социальную ответственность.</p>
-    <a class="pure-button my-button" href="#" >
-        <i class="far fa-grimace fa-lg"></i>
-        Зарепортить о нарушении!
-    </a>
-    {% else %}
-        <p>Залогиньтесь чтоб делать годноту.</p>
-    {% endif %}
-
+    <p>Помните! Нам важен каждый чих!</p>
 </div>
 {% endblock %}
