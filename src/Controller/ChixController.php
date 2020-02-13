@@ -55,6 +55,24 @@ class ChixController extends AbstractController
     }
 
     /**
+     * @Route("/add/{userId}")
+     * @param Request $request
+     * @return Response
+     */
+    public function addFriend(Request $request): Response
+    {
+        $userId = $this->getUserId($request);
+
+        $user = $this->getDoctrine()->getRepository(\App\Entity\User::class)
+            ->find($userId);
+
+        $chixId = $this->chixService->add($user);
+
+        return $this->redirectToRoute('chix_app_chix_view', compact('chixId'));
+
+    }
+
+    /**
      * @Route("/{chixId}/approve", requirements={"chixId"="\d+"})
      * @param Request $request
      * @return Response
@@ -79,9 +97,20 @@ class ChixController extends AbstractController
         $chixId = (int) $request->get('chixId');
 
         if ($chixId < 1) {
-            throw new \InvalidArgumentException("Chix not found: $chixId");
+            throw new \InvalidArgumentException("Param `chixId` isn't correct: $chixId");
         }
 
         return $chixId;
+    }
+
+    private function getUserId(Request $request): int
+    {
+        $userId = (int) $request->get('userId');
+
+        if ($userId < 1) {
+            throw new \InvalidArgumentException("Param `userId` isn't correct: $userId");
+        }
+
+        return $userId;
     }
 }
