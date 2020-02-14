@@ -56,8 +56,10 @@
             <td>
                 {% for approve in chix.approves %}
                     {#<div style="align-items: center; display: flex;">#}
+                    <span data-message="{{ approve.user.name }}">
                         <img src="{{ approve.user.avatar }}" width="25px" height="25px" style="padding: 4px"/>
                         {#<div>{{ approve.user.name }}</div>#}
+                    </span>
                     {#</div>#}
                 {% endfor %}
 
